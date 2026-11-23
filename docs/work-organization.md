@@ -26,21 +26,102 @@ A refactor that is part of delivering pagination can sit in the Feature task.
 
 ### Intake and triage
 
-1. Accept reports from GitHub issues, direct requests, and discoveries during
-   work. Give tracked work one canonical Backlog.md task and add source
-   references when available.
-2. Search for an existing task. Link duplicate reports to it and add any new
-   evidence.
-3. Classify the work and assess readiness. A task is ready to start when its
-   outcome, scope, and verification are clear, the evidence for its type is
-   present, and blockers to starting are resolved.
-4. Keep an incomplete report in intake and record what evidence is missing.
-   Keep a well-defined task with an unresolved dependency in the backlog as
-   blocked. Link the dependency and state what will unblock it.
-5. Agents apply project rules for routine classification, deduplication, and
-   readiness. Maintainers set priority policy and resolve product trade-offs.
+The **Draft Pool** lives under `backlog/drafts/` and the **Task Pool** under
+`backlog/tasks/` in the designated Backlog.md checkout. GitHub issues, direct
+requests and design conversations, and discoveries during work are intake
+channels. When capture runs, it records the report and source in the Draft
+Pool. A source already captured can add evidence to its existing draft or task.
+
+#### Capture contract
+
+A draft requires a title, a description of the report, and its source. Use
+a stable source reference when available, or record where the report came
+from. Include relevant evidence when it is available.
+
+#### Triage contract
+
+Read the draft and search for related work as soon as there is enough
+context to identify it. Record the result for the applicable outcome.
+
+| Outcome | Required record |
+| --- | --- |
+| Needs context | On the draft, record what is missing, why it matters, and the next action to get it. The report stays in the Draft Pool. |
+| Duplicate | On the draft, record the canonical task ID. Add the source and any new evidence to that task, then resolve the draft. |
+| Promote | Create one canonical task that meets the promotion contract and carries forward the source and relevant evidence. |
+
+Agents apply project rules for routine classification, deduplication, and
+readiness. Maintainers set priority policy and resolve product trade-offs.
+
+#### Promotion contract
+
+A task requires a primary work type, intended outcome, scope, how to verify
+the outcome, and its source. Include the [evidence for its work type](#work-types).
+If a dependency is unresolved, record the task as blocked, link the dependency,
+and state what will unblock it. A task is Ready when blockers to starting are
+resolved.
+
+### From design to tasks
+
+A work package keeps its artifacts together under `docs/work/<package>/`.
+The maintainer leads discovery with `grill-with-docs`. The project-owned
+[`design-to-prd` skill](../skills/design-to-prd/SKILL.md) captures the agreed
+outcome, scope, and constraints in `PRD.md`. Record which revision the
+maintainer approves. That approval authorizes routine work within the PRD's
+scope. Escalate a serious issue that needs the maintainer's judgment or a
+change to that scope. Release actions follow the safeguards in [AGENTS.md](../AGENTS.md).
+
+| Phase | Input and skills | Output |
+| --- | --- | --- |
+| Specify | Approved `PRD.md`, `spec-driven-development`, and `api-and-interface-design` for affected interfaces | `SPEC.md` with observable behavior, contracts, and acceptance criteria. |
+| Plan | Reviewed `SPEC.md` and `planning-and-task-breakdown` | `PLAN.md` for the approach and `TODO.md` for individual items, each with a stable ID, outcome, acceptance criteria, verification, and dependencies. |
+| Capture and promote | Reviewed plan and task breakdown, using the intake contracts above | One Backlog.md draft per item, then a canonical task for each eligible draft. |
+
+Project phase instructions use automated review at Addy Osmani's spec and
+plan approval points. Progress through specification, planning, and task
+creation follows the approved PRD and the [Closed-Loop Review
+rules](template-design.md#closed-loop-review).
+
+When recording a planned item, use the package path and item ID to find
+existing records on a repeat run. Link the task to the relevant specification
+and plan sections. Map dependencies between planning items to their canonical
+task IDs before marking a task Ready. Backlog.md records ownership and
+progress. `TODO.md` preserves the reviewed breakdown. Use a Backlog.md
+milestone when the tasks share a delivery checkpoint worth tracking, and
+labels for categories that span work packages.
+
+### Pickup
+
+1. **Filter.** Consider unowned Ready tasks and interrupted tasks whose
+   ownership has been released. The agent must be able to take the next
+   action and any blockers to that action must be resolved. On a planned
+   pause, the owner updates the shared task before releasing it. After an
+   abrupt interruption, the maintainer or designated coordinator can release
+   ownership. A period without updates leaves the claim in place.
+2. **Rank.** Take the highest-priority eligible task. At equal priority,
+   prefer interrupted work and then the oldest task. A direct assignment
+   can select a specific eligible task.
+3. **Claim.** The designated coordinator rechecks eligibility and records one
+   owner in one serialized operation against the shared task record. Start
+   work after the claim is confirmed. If another agent takes the task, refresh
+   the candidates. An interrupted agent checks current ownership before
+   resuming.
+4. **Verify where to start.** Read the task's phase and next action, then
+   compare them with the linked artifacts. For code changes, check the
+   branch, commit, PR state, and the revision the recorded checks covered.
+   Update a stale record from available evidence. If local-only work is
+   missing, record the gap and continue from the latest shared checkpoint
+   when the next action is clear.
 
 ### During work and at completion
+
+The Backlog.md task is the living record of the work. Each work phase has
+expected updates. Keep the current phase, completed work, evidence, blockers,
+and next action visible on the task. Link durable work artifacts and add
+comments when a phase needs context or a decision needs explaining.
+
+Update the record as work progresses and before moving to the next phase. A
+replacement agent can use the shared task and its linked artifacts to resume
+without a separate handoff conversation.
 
 Record actionable discoveries outside the task's scope as follow-up work.
 If a discovery prevents the current task from completing, record it as a
@@ -87,7 +168,7 @@ milestone will use these labeled tasks to identify recurring problems.
 
 ## Backlog.md Conventions
 
-Decisions still open include the workflow states, ownership and handoffs
-with multiple agents, and the concrete representation of type, priority,
-references, blockers, and the `internal-improvement` label. See the
+Decisions still open include the workflow states, how to record and confirm
+shared claims, and the concrete representation of type, priority, references,
+blockers, and the `internal-improvement` label. See the
 [handoff](HANDOFF.md) for where to resume.
