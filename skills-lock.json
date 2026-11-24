@@ -1,0 +1,117 @@
+{
+  "version": 2,
+  "skills": {
+    "api-and-interface-design": {
+      "source": "addyosmani/agent-skills",
+      "commit": "8c99fa36d90068c82d547f7c12a9d67a3e95f4ee",
+      "sourceType": "github",
+      "skillPath": "skills/api-and-interface-design/SKILL.md",
+      "computedHash": "f8cb4ee59fe787bf94bfe40086ca4652d3cb738e16805d10acca2da3b80a001e",
+      "installMode": "copy"
+    },
+    "ci-cd-and-automation": {
+      "source": "addyosmani/agent-skills",
+      "commit": "8c99fa36d90068c82d547f7c12a9d67a3e95f4ee",
+      "sourceType": "github",
+      "skillPath": "skills/ci-cd-and-automation/SKILL.md",
+      "computedHash": "7be96fc2a6cc3d8d769d5769b9024d41a4b40f502372b34bf4438b7056e5b2b9",
+      "installMode": "copy"
+    },
+    "code-review-and-quality": {
+      "source": "addyosmani/agent-skills",
+      "commit": "8c99fa36d90068c82d547f7c12a9d67a3e95f4ee",
+      "sourceType": "github",
+      "skillPath": "skills/code-review-and-quality/SKILL.md",
+      "computedHash": "a63e1874fa8f1ee04194868f9b8ba18133aa20464586369f3eedb8df6000a0cc",
+      "installMode": "copy"
+    },
+    "debugging-and-error-recovery": {
+      "source": "addyosmani/agent-skills",
+      "commit": "8c99fa36d90068c82d547f7c12a9d67a3e95f4ee",
+      "sourceType": "github",
+      "skillPath": "skills/debugging-and-error-recovery/SKILL.md",
+      "computedHash": "aa26ffd65f2e2759c66806c4a3111c6fbaad612c5f39799bd3bc6cd942abd0fc",
+      "installMode": "copy"
+    },
+    "documentation-and-adrs": {
+      "source": "addyosmani/agent-skills",
+      "commit": "8c99fa36d90068c82d547f7c12a9d67a3e95f4ee",
+      "sourceType": "github",
+      "skillPath": "skills/documentation-and-adrs/SKILL.md",
+      "computedHash": "deb39d7c8157563bc14a48f0d22003c82f4d8370b69c96efde476fe12318d188",
+      "installMode": "copy"
+    },
+    "domain-modeling": {
+      "source": "mattpocock/skills",
+      "commit": "abeeaf95660ba9e8b7c753eb38f441ca707a8823",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/domain-modeling/SKILL.md",
+      "computedHash": "b78689833404148c769077355e12dbe5ad996a158a1e21e58ddf169e439d9d8c",
+      "installMode": "copy"
+    },
+    "git-workflow-and-versioning": {
+      "source": "addyosmani/agent-skills",
+      "commit": "8c99fa36d90068c82d547f7c12a9d67a3e95f4ee",
+      "sourceType": "github",
+      "skillPath": "skills/git-workflow-and-versioning/SKILL.md",
+      "computedHash": "860b88bf82d823eaed15b9b9fa9ce4273f94c7bdcf3aeaa3e6649eb578763d4b",
+      "installMode": "copy"
+    },
+    "grill-with-docs": {
+      "source": "mattpocock/skills",
+      "commit": "abeeaf95660ba9e8b7c753eb38f441ca707a8823",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/grill-with-docs/SKILL.md",
+      "computedHash": "02e258f41d210f9b2e7cce9faf62b3c59e8fcebe5d2736369c3cd07d471324f8",
+      "installMode": "copy"
+    },
+    "grilling": {
+      "source": "mattpocock/skills",
+      "commit": "abeeaf95660ba9e8b7c753eb38f441ca707a8823",
+      "sourceType": "github",
+      "skillPath": "skills/productivity/grilling/SKILL.md",
+      "computedHash": "485451958784497cd4c4dbea13cb5bbb579da58fac0d0e45f3bcb310fab68ac7",
+      "installMode": "copy"
+    },
+    "incremental-implementation": {
+      "source": "addyosmani/agent-skills",
+      "commit": "8c99fa36d90068c82d547f7c12a9d67a3e95f4ee",
+      "sourceType": "github",
+      "skillPath": "skills/incremental-implementation/SKILL.md",
+      "computedHash": "62ef93c6389f110af49ed4fad1fe2c27d3d9dd2d8fe0d0f6db089489c3d4aac3",
+      "installMode": "copy"
+    },
+    "planning-and-task-breakdown": {
+      "source": "addyosmani/agent-skills",
+      "commit": "8c99fa36d90068c82d547f7c12a9d67a3e95f4ee",
+      "sourceType": "github",
+      "skillPath": "skills/planning-and-task-breakdown/SKILL.md",
+      "computedHash": "e4ef8d478d672103693af0cab5a97a1914f776099ef0756c2a093d9ae061f024",
+      "installMode": "copy"
+    },
+    "shipping-and-launch": {
+      "source": "addyosmani/agent-skills",
+      "commit": "8c99fa36d90068c82d547f7c12a9d67a3e95f4ee",
+      "sourceType": "github",
+      "skillPath": "skills/shipping-and-launch/SKILL.md",
+      "computedHash": "ae9b095cfb74edd0d2b63c24aaca99e5a2f95b50527a7508841b501eabd3820a",
+      "installMode": "copy"
+    },
+    "spec-driven-development": {
+      "source": "addyosmani/agent-skills",
+      "commit": "8c99fa36d90068c82d547f7c12a9d67a3e95f4ee",
+      "sourceType": "github",
+      "skillPath": "skills/spec-driven-development/SKILL.md",
+      "computedHash": "e560111a2823150a1be6d5a264cd3449dbdb9c67de011eea29204b4dee438e58",
+      "installMode": "copy"
+    },
+    "test-driven-development": {
+      "source": "addyosmani/agent-skills",
+      "commit": "8c99fa36d90068c82d547f7c12a9d67a3e95f4ee",
+      "sourceType": "github",
+      "skillPath": "skills/test-driven-development/SKILL.md",
+      "computedHash": "37cc05dea2a455d5d3ff252f14a7323ef378536603cce8cd2c758dc8fac790e6",
+      "installMode": "copy"
+    }
+  }
+}

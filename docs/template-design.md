@@ -16,6 +16,8 @@ These are the first-level deliverables of the design.
 | Work Organization | A maintainer or agent can take a report from intake through triage and into Backlog.md, then hand it off or close it. |
 | Design and Implementation | Agents can tell which changes need a design discussion and deliver small changes through short-lived PRs into `main`. |
 | Verification and Review | Local and CI checks agree, PRs carry verification evidence, and agents know when review needs a human. |
+| [Closed-Loop Review](#closed-loop-review) | A review skill routes each artifact to a fresh specialist, sends graded findings to the phase owner, and repeats review within a ten-round limit. |
+| [Task Dispatcher](#task-dispatcher) | A repository can automatically claim eligible Backlog.md tasks and start or resume implementation from their shared records. |
 | Publishing and Rollback | A maintainer can release a generated API, verify the deployment, and roll it back. |
 | Template Setup and Maintenance | A fresh generated repository can follow the setup guide, run the checks, create a task, and deliver a sample PR. |
 | Continuous Improvement and Self-Healing | Use task feedback to find recurring failures. Decide what the repo can detect and recover from automatically, how to verify recovery, and when to hand off to a maintainer. |
@@ -90,6 +92,38 @@ todo. The route translates the failure into an HTTP response.
 [Better Auth's Elysia integration](https://better-auth.com/docs/integrations/elysia)
 and [account operations](https://better-auth.com/docs/concepts/users-accounts)
 are the references for this design.
+
+## Closed-Loop Review
+
+Design a project-owned skill that chooses a reviewer profile based on the
+phase and artifact under review. Start a fresh review agent each round. The
+reviewer returns a concise list of findings with evidence and grades them
+**Nit**, **Minor**, **Major**, or **Blocker**. The phase owner addresses
+findings and submits the revised artifact for review.
+
+When only Nit and Minor findings remain, the phase owner fixes them, verifies
+the affected behavior, and advances. Cap a review cycle at ten rounds. If a
+Major or Blocker remains at the cap, escalate it to the maintainer with the
+evidence and the decision needed. Keep a concise record of the reviewed
+revision, round count, and finding dispositions with the artifact or task.
+Define the reviewer profiles and review contracts in this milestone's design
+session.
+
+## Task Dispatcher
+
+The dispatcher applies the agreed [pickup rules](work-organization.md#pickup)
+and starts an implementation agent after confirming a shared claim. The
+agent starts or resumes from the task and its linked artifacts, then updates
+the task as it works through the agreed phases.
+
+Verify the milestone with a Ready task, an interrupted task with a shared
+checkpoint, and competing pickup attempts for the same task. Exercise an
+interruption during launch and verify that recovery preserves one confirmed
+owner and at most one active implementation run for the task.
+
+Open decisions include what authorizes unattended dispatch, where the
+dispatcher runs, how it observes backlog changes, and how it confirms or
+recovers a launch.
 
 ## Current design boundary
 
